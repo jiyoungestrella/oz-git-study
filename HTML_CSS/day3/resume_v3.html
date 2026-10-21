@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김지영의 이력서</title>
+    <!-- 외부 css (extrernal css) 여러개 가능 -->
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- style css(자체제작) -->
+    <link rel="stylesheet" href="./resume_st.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 추가: 본문용 한글 폰트 Noto Sans KR 같이 불러오기 -->
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 추가: 왼쪽 메뉴 (nav) -->
+    <nav id="menu">
+        <a href="#introduce">Introduce</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#career">Career</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div id="contents">
+        <!-- 추가: 프로필 사진 -->
+        <img src="profile_pic_wh.jpg" alt="김지영 프로필 사진" id="profile-img">
+
+        <header>Jiyoung Kim</header>
+
+        <!-- 추가: 목표 직무 -->
+        <p id="role">Healthcare Product Manager</p>
+
+        <!-- a#github -->
+        <a href="https://github.com/jiyoungestrella?tab=repositories" id="github" target="_blank">
+            <i class="fa-brands fa-github"></i>GitHub
+        </a>
+        <!-- 추가: 이메일 (a는 inline 요소라 GitHub 옆에 나란히 배치됨) -->
+        <a href="mailto:jy96.kim@gmail.com" id="email">
+            <i class="fa-solid fa-envelope"></i>estrellajiyoung@gmail.com
+        </a>
+
+        <main>
+            <!-- 추가: 자기소개 -->
+            <section id="introduce">
+                <h2>Introduce</h2>
+                <p>
+                    안녕하세요, 김지영입니다. 간호사 출신으로, <strong>현장에서 본 문제를 데이터로 푸는 AI 헬스케어 PM</strong>을 준비하고 있습니다.
+                    외래·병동·중환자실과 임상연구 현장을 거치며 쌓은 경험을 바탕으로, 순간에 지켜지는 흐름을 만드는 헬스케어 서비스를 기획하고자 합니다.
+                </p>
+            </section>
+
+             <!-- 추가: 스킬 -->
+            <section id="skills">
+                <h2>Skills</h2>
+
+                <div class="skill-group">
+                    <h3>DOMAIN</h3>
+                    <ul class="tags">
+                        <li>임상 간호</li>
+                        <li>중환자 케어</li>
+                        <li>임상연구 코디네이션</li>
+                        <li>의료 현장 워크플로우</li>
+                    </ul>
+                </div>
+<br>
+                <div class="skill-group">
+                    <h3>DATA &amp; AI</h3>
+                    <ul class="tags">
+                        <li>Python</li>
+                        <li>Pandas</li>
+                        <li>데이터 분석</li>
+                        <li>머신러닝</li>
+                    </ul>
+                </div>
+<br>
+                <div class="skill-group">
+                    <h3>PLANNING</h3>
+                    <ul class="tags">
+                        <li>서비스 기획</li>
+                        <li>비즈니스 모델 설계</li>
+                        <li>요구사항 정의</li>
+                    </ul>
+                </div>
+<br>
+                <div class="skill-group">
+                    <h3>TOOLS</h3>
+                    <ul class="tags">
+                        <li>Git / GitHub</li>
+                        <li>HTML / CSS</li>
+                        <li>Notion</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 추가: 프로젝트 -->
+            <section id="projects">
+                <h2>Projects</h2>
+
+
+                 <article class="project">
+                    <div class="project-head">
+                        <h3>개인) 비만주사 단약노트(가제) 서비스 기획</h3>
+                        <span class="date">2026.10</span>
+                    </div>
+                    <div class="project-foot">
+                        <ul class="tags small">
+                            <li>서비스 기획</li>
+                            <li>구독 모델</li>
+                        </ul>
+                        <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                            자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+
+
+                <article class="project">
+                    <div class="project-head">
+                        <h3>동물병원 판독 보조 구독 서비스 기획 및 데이터분석</h3>
+                        <span class="date">2026.10</span>
+                    </div>
+                    <div class="project-foot">
+                        <ul class="tags small">
+                            <li>서비스 기획</li>
+                            <li>데이터 분석</li>
+                            <li>구독 모델</li>
+                        </ul>
+                        <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                            자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-head">
+                        <h3>난임 시술 임신 성공 예측 머신러닝</h3>
+                        <span class="date">2026.09</span>
+                    </div>
+                    <div class="project-foot">
+                        <ul class="tags small">
+                            <li>Python</li>
+                            <li>머신러닝</li>
+                        </ul>
+                        <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                            자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project-head">
+                        <h3>흡연 여부 데이터 분석</h3>
+                        <span class="date">2026.08</span>
+                    </div>
+                    <div class="project-foot">
+                        <ul class="tags small">
+                            <li>Python</li>
+                            <li>데이터 분석</li>
+                        </ul>
+                        <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                            자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+            </section>
+
+
+            <!-- 추가: 경력 -->
+            <section id="career">
+                <h2>Career &amp; Work Experience</h2>
+                <ul>
+
+                    <li class="item">
+                        <span class="title">삼성서울병원 <small>간호사 (외래)</small></span>
+                        <span class="date">2025 ~ 2026</span>
+                    </li>
+
+                    <li class="item">
+                        <span class="title">경희의료원 <small>임상연구코디네이터 (신경과)</small></span>
+                        <span class="date">2023 ~ 2024</span>
+                    </li>
+                    <li class="item">
+                        <span class="title">고려대학교병원 <small>간호사 (중환자실)</small></span>
+                        <span class="date">2021 ~ 2023</span>
+                    </li>
+                    <li class="item">
+                        <span class="title">분당제생병원 <small>간호사 (병동)</small></span>
+                        <span class="date">2020 ~ 2021</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 추가: 이력서 전송 폼 -->
+            <section id="contact">
+                <h2>Send Cover Letter 💌</h2>
+                <form>
+                    <label for="company-email">담당자 이메일</label>
+                    <input type="email" id="company-email" name="email" placeholder="email@example.com">
+                    <label for="company">회사명</label>
+                    <input type="text" id="company" name="company" placeholder="(주)Company">
+                    <button type="submit">이력서 전송하기</button>
+                </form>
+            </section>
+
+            <!-- 포지션 -->
+            <div class="box">
+            <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank">[💼portfolio]</a>
+            </div>
+            
+        </main>
+
+        <footer>Copyright &#169;김지영</footer>
+    </div>
+</body>
+</html>
