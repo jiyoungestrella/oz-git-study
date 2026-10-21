@@ -2,7 +2,7 @@
             text-align: center;
         }
         header{
-            font-family: "Bitcount Ink", system-ui; font-optical-sizing: auto; font-weight: <weight>; font-style: normal;
+            font-family: "Bitcount Ink", system-ui;
             font-size: x-large; 
             font-weight: bold; 
             margin: 20px;
@@ -63,6 +63,7 @@ body {
 header {
     font-size: 40px;
     margin: 10px 0 0;
+    color: #9b5c9b;   /* 컬러 폰트 미지원 브라우저용 색 (plum 계열) */
 }
 
 /* 추가: 프로필 사진 (원형) */
@@ -390,7 +391,7 @@ html {
 
  .box{
      background-color : beige;
-     border: 1px : solid black;
+     border: 1px  solid black;
     /* 픽스 포지션--- 스크롤 따라감 (ex.상단 네비게이션바. 챗봇아이콘 등 ) */
         position : fixed;
         bottom: 20px;

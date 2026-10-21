@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 반응형 필수: 기기 실제 너비에 맞춰 화면 표시 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김지영의 이력서</title>
+
+    <!-- 외부 css (external css) 여러 개 가능 -->
+    <!-- ① font awesome (아이콘) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- ② google font: 이름용 Bitcount Ink + 본문용 Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- ③ style css (자체제작) : 외부 폰트보다 뒤에 둬야 내 스타일이 우선 적용됨 -->
+    <link rel="stylesheet" href="./resume_st.css">
+</head>
+<body>
+
+    <!-- =====================================================
+         navbar (nav) : PC에선 왼쪽 세로 사이드바,
+         768px 이하에선 위쪽 가로 메뉴로 바뀜 (CSS 미디어쿼리)
+         href="#아이디" → 같은 페이지의 해당 section으로 이동
+         ===================================================== -->
+    <nav id="menu">
+        <a href="#introduce">Introduce</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#career">Career</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- 이력서 흰 카드 전체 -->
+    <div id="contents">
+
+        <!-- 프로필 사진 (원형) -->
+        <img src="profile_pic_wh.jpg" alt="김지영 프로필 사진" id="profile-img">
+
+        <!-- 이름 : 컬러 폰트(Bitcount Ink) -->
+        <header>Jiyoung Kim</header>
+
+        <!-- 목표 직무 -->
+        <p id="role">Healthcare Product Manager</p>
+
+        <!-- 연락처 : a는 inline 요소라 GitHub와 이메일이 나란히 배치됨 -->
+        <a href="https://github.com/jiyoungestrella?tab=repositories" id="github" target="_blank">
+            <i class="fa-brands fa-github"></i>GitHub
+        </a>
+        <!-- ⚠️ mailto 주소와 화면에 보이는 주소가 다름 → 실제 쓰는 주소 하나로 맞추기 -->
+        <a href="mailto:jy96.kim@gmail.com" id="email">
+            <i class="fa-solid fa-envelope"></i>estrellajiyoung@gmail.com
+        </a>
+
+        <main>
+            <!-- ===== 자기소개 ===== -->
+            <section id="introduce">
+                <h2>Introduce</h2>
+                <p>
+                    안녕하세요, 김지영입니다. 간호사 출신으로, <strong>현장에서 본 문제를 데이터로 푸는 AI 헬스케어 PM</strong>을 준비하고 있습니다.
+                    외래·병동·중환자실과 임상연구 현장을 거치며 쌓은 경험을 바탕으로, 순간에 지켜지는 흐름을 만드는 헬스케어 서비스를 기획하고자 합니다.
+                </p>
+            </section>
+
+            <!-- ===== 스킬 =====
+                 [Grid 적용] .skill-grid로 4개 그룹을 감싸서 2×2 바둑판 배치
+                 그룹 사이 간격은 gap이 담당 → 기존 <br> 삭제 -->
+            <section id="skills">
+                <h2>Skills</h2>
+
+                <div class="skill-grid">
+                    <div class="skill-group">
+                        <h3>DOMAIN</h3>
+                        <!-- [Flex 적용] 태그 가로 나열 + flex-wrap 줄바꿈 -->
+                        <ul class="tags">
+                            <li>임상 간호</li>
+                            <li>중환자 케어</li>
+                            <li>임상연구 코디네이션</li>
+                            <li>의료 현장 워크플로우</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>DATA &amp; AI</h3>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>Pandas</li>
+                            <li>데이터 분석</li>
+                            <li>머신러닝</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>PLANNING</h3>
+                        <ul class="tags">
+                            <li>서비스 기획</li>
+                            <li>비즈니스 모델 설계</li>
+                            <li>요구사항 정의</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>TOOLS</h3>
+                        <ul class="tags">
+                            <li>Git / GitHub</li>
+                            <li>HTML / CSS</li>
+                            <li>Notion</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== 프로젝트 =====
+                 [Grid 적용] .project-grid로 카드 4개를 감싸서 PC 2열 / 모바일 1열 -->
+            <section id="projects">
+                <h2>Projects</h2>
+
+                <div class="project-grid">
+                    <article class="project">
+                        <!-- [Flex] 제목 왼쪽 ↔ 날짜 오른쪽 -->
+                        <div class="project-head">
+                            <h3>개인) 비만주사 단약노트(가제) 서비스 기획</h3>
+                            <span class="date">2026.10</span>
+                        </div>
+                        <!-- [Flex] 태그 왼쪽 ↔ 링크 오른쪽 -->
+                        <div class="project-foot">
+                            <ul class="tags small">
+                                <li>서비스 기획</li>
+                                <li>구독 모델</li>
+                            </ul>
+                            <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                                자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-head">
+                            <h3>동물병원 판독 보조 구독 서비스 기획 및 데이터분석</h3>
+                            <span class="date">2026.10</span>
+                        </div>
+                        <div class="project-foot">
+                            <ul class="tags small">
+                                <li>서비스 기획</li>
+                                <li>데이터 분석</li>
+                                <li>구독 모델</li>
+                            </ul>
+                            <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                                자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-head">
+                            <h3>난임 시술 임신 성공 예측 머신러닝</h3>
+                            <span class="date">2026.09</span>
+                        </div>
+                        <div class="project-foot">
+                            <ul class="tags small">
+                                <li>Python</li>
+                                <li>머신러닝</li>
+                            </ul>
+                            <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                                자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-head">
+                            <h3>흡연 여부 데이터 분석</h3>
+                            <span class="date">2026.08</span>
+                        </div>
+                        <div class="project-foot">
+                            <ul class="tags small">
+                                <li>Python</li>
+                                <li>데이터 분석</li>
+                            </ul>
+                            <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank" class="project-link">
+                                자세히 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ===== 경력 =====
+                 [Grid 적용] .career-row : 병원명 | 직무 | 기간 3칸으로 세로줄 맞춤
+                 (기존 <small> 직무를 밖으로 빼서 span 3개로 나눔) -->
+            <section id="career">
+                <h2>Career &amp; Work Experience</h2>
+                <ul>
+                    <li class="item career-row">
+                        <span class="title">삼성서울병원</span>
+                        <span class="role">간호사 (외래)</span>
+                        <span class="date">2025 ~ 2026</span>
+                    </li>
+                    <li class="item career-row">
+                        <span class="title">경희의료원</span>
+                        <span class="role">임상연구코디네이터 (신경과)</span>
+                        <span class="date">2023 ~ 2024</span>
+                    </li>
+                    <li class="item career-row">
+                        <span class="title">고려대학교병원</span>
+                        <span class="role">간호사 (중환자실)</span>
+                        <span class="date">2021 ~ 2023</span>
+                    </li>
+                    <li class="item career-row">
+                        <span class="title">분당제생병원</span>
+                        <span class="role">간호사 (병동)</span>
+                        <span class="date">2020 ~ 2021</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ===== 이력서 전송 폼 =====
+                 [Flex 적용] flex-direction: column 으로 세로 쌓기 -->
+            <section id="contact">
+                <h2>Send Cover Letter 💌</h2>
+                <form>
+                    <label for="company-email">담당자 이메일</label>
+                    <input type="email" id="company-email" name="email" placeholder="email@example.com">
+                    <label for="company">회사명</label>
+                    <input type="text" id="company" name="company" placeholder="(주)Company">
+                    <button type="submit">이력서 전송하기</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>Copyright &#169;김지영</footer>
+    </div>
+
+    <!-- ===== 포트폴리오 플로팅 버튼 =====
+         [Position: fixed] 스크롤해도 화면 오른쪽 아래에 고정
+         (fixed는 화면 기준이라 main 안이든 밖이든 같은 자리 → 구조상 body 바로 아래로 이동) -->
+    <div class="box">
+        <a href="https://app.notion.com/p/Project-LIST-3ffb930158d58036ad63d3b987943364?source=copy_link" target="_blank">[💼portfolio]</a>
+    </div>
+
+</body>
+</html>

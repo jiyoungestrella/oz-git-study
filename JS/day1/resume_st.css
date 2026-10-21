@@ -1,0 +1,499 @@
+/* =========================================================
+   김지영 이력서 스타일 (resume_st.css)
+   구성 순서
+   0. 초기화 / 공통
+   1. navbar (왼쪽 사이드바)
+   2. 이력서 카드 (#contents)
+   3. 프로필 영역 (사진, 이름, 직무, 연락처)
+   4. 섹션 공통 (제목)
+   5. Skills      → Grid 2×2 + Flex 태그
+   6. Projects    → Grid 2열 + Flex 카드 내부
+   7. Career      → Grid 3칸 (병원명 | 직무 | 기간)
+   8. Form        → Flex column
+   9. Footer
+   10. 포트폴리오 플로팅 버튼 (position: fixed)
+   11. 반응형 (Media Query)
+   ========================================================= */
+
+
+/* =========================================================
+   0. 초기화 / 공통
+   ========================================================= */
+
+/* Box Model: 모든 요소의 기본 여백 제거 + border-box
+   border-box → width 안에 padding, border까지 포함해서 계산 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 메뉴 클릭 시 부드럽게 스크롤 */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #f5f4f2;
+    color: #222;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;   /* li 앞의 점 없애기 */
+}
+
+
+/* =========================================================
+   1. navbar : PC에선 왼쪽 세로 사이드바
+   ========================================================= */
+#menu {
+    position: fixed;        /* 화면 기준 고정 → 스크롤해도 그 자리 */
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 100vh;          /* 화면 높이 전체 */
+    background-color: #2f2f2f;
+    padding: 40px 20px;
+
+    /* Flex: 메뉴 링크를 세로로 쌓기 */
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 10;            /* 다른 요소보다 위에 보이게 */
+}
+
+#menu a {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    color: plum;
+}
+
+
+/* =========================================================
+   2. 이력서 카드 (#contents)
+   ========================================================= */
+#contents {
+    max-width: 760px;           /* 최대 너비만 제한 → 작은 화면에선 자동으로 줄어듦 */
+    margin: 40px auto;          /* 위아래 40px, 좌우 auto = 가로 가운데 정렬 */
+    padding: 50px 40px 0;       /* 위 50 / 좌우 40 / 아래 0 (footer가 끝까지 붙게) */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;         /* 프로필 영역 가운데 정렬 (main에서 왼쪽으로 되돌림) */
+}
+
+
+/* =========================================================
+   3. 프로필 영역
+   ========================================================= */
+
+/* 프로필 사진 : 원형 */
+#profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;         /* 정사각형 + 50% = 원 */
+    object-fit: cover;          /* 비율 유지하며 꽉 채우기 */
+    border: 3px solid plum;
+}
+
+/* 이름 */
+header {
+    font-family: "Bitcount Ink", system-ui;   /* ✅ 수정: <weight> 자리표시자 줄 삭제 → 에러 해결 */
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #9b5c9b;   /* 컬러 폰트 미지원 브라우저(Safari)에서 보일 색 */
+}
+
+/* 목표 직무 */
+#role {
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+/* 연락처 링크 : GitHub, 이메일 공통 스타일 (그룹 선택자) */
+#github,
+#email {
+    font-size: small;
+    color: gray;
+    text-decoration: none;
+}
+
+#email {
+    margin-left: 16px;          /* GitHub과 이메일 사이 간격 */
+}
+
+#github:hover,
+#email:hover {
+    text-decoration: underline;
+}
+
+/* 아이콘과 글자 사이 간격 (자손 선택자) */
+#github i,
+#email i {
+    margin-right: 4px;
+}
+
+
+/* =========================================================
+   4. 섹션 공통
+   ========================================================= */
+
+/* 본문은 왼쪽 정렬 (#contents의 center를 덮어씀) */
+main {
+    text-align: left;
+    padding-top: 50px;
+    font-size: small;
+}
+
+section {
+    margin-bottom: 44px;
+}
+
+/* 섹션 제목 : 왼쪽 세로 막대 */
+h2 {
+    font-size: 20px;
+    border-left: 4px solid plum;
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+#introduce p {
+    padding-left: 16px;
+    color: #444;
+}
+
+/* 공통 날짜 스타일 (프로젝트, 경력에서 같이 사용) */
+.date {
+    font-size: 13px;
+    color: #999;
+    white-space: nowrap;        /* 날짜가 두 줄로 쪼개지지 않게 */
+}
+
+
+/* =========================================================
+   5. Skills
+   ========================================================= */
+
+/* [Grid] 4개 그룹을 2×2 바둑판으로 */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 같은 너비 2칸 (1fr 1fr) */
+    gap: 20px 24px;                         /* 세로 간격 20px, 가로 간격 24px */
+    padding-left: 16px;
+}
+
+.skill-group h3 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+/* [Flex] 태그 가로 나열, 넘치면 다음 줄로 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 알약 모양 태그 */
+.tags li {
+    background-color: #f3e6f3;   /* 연한 plum */
+    color: #6b3d6b;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 999px;        /* 아주 큰 값 → 양 끝이 완전히 둥근 알약 */
+}
+
+/* 프로젝트 카드 안의 작은 회색 태그 (클래스 2개 동시 선택) */
+.tags.small li {
+    font-size: 12px;
+    padding: 2px 10px;
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+
+/* =========================================================
+   6. Projects
+   ========================================================= */
+
+/* [Grid] 카드 4개를 2열로 */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;                  /* 카드 사이 간격 → 카드에 margin 불필요 */
+}
+
+.project {
+    padding: 16px 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    /* [Flex] 카드 안을 세로로 쌓고, foot을 맨 아래로 밀기
+       → 2열일 때 옆 카드와 높이가 달라도 태그·링크 줄이 아래에 맞춰짐 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 마우스 올리면 살짝 떠오르기 */
+.project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* [Flex] 제목 왼쪽 ↔ 날짜 오른쪽 */
+.project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;      /* 글자 밑선 기준 정렬 */
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.project-head h3 {
+    font-size: 15px;
+}
+
+/* [Flex] 태그 왼쪽 ↔ 링크 오른쪽 */
+.project-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-link {
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    color: plum;
+}
+
+
+/* =========================================================
+   7. Career
+   ========================================================= */
+
+/* 경력 한 줄 공통 */
+.item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+    border-bottom: none;        /* 마지막 줄은 밑줄 없음 */
+}
+
+.item:hover {
+    background-color: #faf5fa;
+}
+
+/* [Grid] 병원명 | 직무 | 기간 3칸
+   130px  : 병원명 칸 고정 → 직무 시작 위치가 모든 줄에서 똑같이 맞음
+   1fr    : 직무 칸이 남은 공간 전부
+   auto   : 기간 칸은 내용 길이만큼 */
+.career-row {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    align-items: center;
+    gap: 12px;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.role {
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* =========================================================
+   8. Form
+   ========================================================= */
+
+/* [Flex] 라벨, 입력창, 버튼을 세로로 쌓기 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+    padding-left: 16px;
+}
+
+label {
+    font-size: 13px;
+    color: #666;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;       /* 부모 폰트 그대로 사용 */
+}
+
+input:focus {
+    outline: none;
+    border-color: plum;
+}
+
+button {
+    align-self: flex-start;     /* 버튼만 가로로 꽉 차지 않게 */
+    margin-top: 8px;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    cursor: pointer;            /* 마우스 올리면 손가락 모양 */
+}
+
+button:hover {
+    background-color: plum;
+}
+
+
+/* =========================================================
+   9. Footer
+   ========================================================= */
+footer {
+    background-color: plum;
+    font-size: xx-small;
+    margin: 60px -40px 0;       /* 음수 margin: #contents의 좌우 padding(40px)만큼 바깥으로 → 카드 끝까지 */
+    padding: 12px;
+    border-radius: 0 0 8px 8px; /* 아래쪽 모서리만 둥글게 (카드와 맞춤) */
+}
+
+
+/* =========================================================
+   10. 포트폴리오 플로팅 버튼
+   ========================================================= */
+.box {
+    position: fixed;            /* 스크롤 따라감 (ex. 상단 네비게이션바, 챗봇 아이콘) */
+    bottom: 20px;
+    right: 20px;
+    background-color: beige;
+    border: 1px solid black;    /* ✅ 수정: 1px : solid → 1px solid (중간 콜론 때문에 무효였음) */
+    padding: 4px 10px;
+    font-size: small;
+    z-index: 10;
+}
+
+.box a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.box a:hover {
+    color: plum;
+}
+
+
+/* =========================================================
+   11. 반응형 (Media Query)
+   "화면 너비가 이 조건일 때만 안의 CSS를 적용해"라는 조건문
+   PC (1200px)   → 아무 조건도 해당 안 됨 → 위의 기본 스타일 그대로
+   노트북(1000px) → 1100 조건만
+   태블릿 (700px) → 1100 + 768 조건
+   모바일 (400px) → 1100 + 768 + 480 조건 모두
+   ※ 큰 조건 → 작은 조건 순서로! (뒤에 쓴 게 우선 적용)
+   ========================================================= */
+
+/* ----- 1100px 이하 : 사이드바와 카드가 겹치지 않게 ----- */
+@media (max-width: 1100px) {
+    #contents {
+        margin-left: 200px;     /* 사이드바(160px) + 여유 40px */
+        margin-right: 40px;
+    }
+}
+
+/* ----- 768px 이하 (태블릿) ----- */
+@media (max-width: 768px) {
+    /* navbar: 왼쪽 세로 사이드바 → 위쪽 가로 메뉴 */
+    #menu {
+        position: sticky;       /* 원래 자리(맨 위)에 있다가 스크롤 시 위에 붙음 */
+        width: 100%;
+        height: auto;
+        flex-direction: row;    /* 세로 → 가로 */
+        justify-content: center;
+        padding: 14px;
+    }
+
+    /* 카드: 사이드바 자리만큼 비워둔 왼쪽 여백 없애고 안쪽 여백 줄이기 */
+    #contents {
+        margin: 20px 16px;
+        padding: 30px 20px 0;
+    }
+
+    /* footer: 카드 padding이 20px로 줄었으니 음수 margin도 맞춰서 */
+    footer {
+        margin: 60px -20px 0;
+    }
+
+    /* [Grid] Projects 2열 → 1열 */
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ----- 480px 이하 (모바일) ----- */
+@media (max-width: 480px) {
+    /* navbar: 메뉴 5개가 한 줄에 들어가게 간격·글자 줄이기
+       (✅ 정리: 기존 flex-direction: column 삭제 → 세로 5줄로 길어지는 문제 해결) */
+    #menu {
+        gap: 12px;
+    }
+
+    #menu a {
+        font-size: 12px;
+    }
+
+    /* 이름 글자 크기 줄이기 */
+    header {
+        font-size: 28px;
+    }
+
+    /* 이메일: inline → block 으로 바꿔서 GitHub 아래 줄로 내리기 */
+    #email {
+        display: block;
+        margin: 6px 0 0;
+    }
+
+    /* [Grid] Skills 2×2 → 1열 */
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* [Flex] 프로젝트 제목 아래로 날짜 내리기 */
+    .project-head {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    /* [Grid] 경력 3칸 → 1칸 (병원명 / 직무 / 기간이 한 줄씩) */
+    .career-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+}

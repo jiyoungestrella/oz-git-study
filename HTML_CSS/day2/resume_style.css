@@ -6,6 +6,7 @@
             font-size: x-large; 
             font-weight: bold; 
             margin: 20px;
+            color: #9b5c9b;   /* 컬러 폰트 미지원 브라우저용 색 (plum 계열) */
 
         }
         
