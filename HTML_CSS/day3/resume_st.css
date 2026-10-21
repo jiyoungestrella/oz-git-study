@@ -135,6 +135,7 @@ ul {
     border-bottom: 1px solid #eee;
 }
 
+
 .item:last-child {
     border-bottom: none;
 }
@@ -407,3 +408,32 @@ html {
 }
 
 
+
+/* "화면 너비가 이 조건일 때만 안의 CSS를 적용해"라는 조건문 media quary*/
+/* PC (1200px)      → 아무 조건도 해당 안 됨 → 기본 스타일 그대로 */
+
+/* 화면 너비가 768px 이하일 때 (태블릿) */
+@media (max-width: 768px) {
+    #contents {
+        padding: 30px 20px;     /* 카드여백 줄이기 */
+    }
+}
+
+/* 화면 너비가 480px 이하일 때 (모바일) */
+@media (max-width: 480px) {
+    /* navbar 메뉴: 가로 → 세로 */
+    #menu {
+        flex-direction: column;
+    }
+
+    /* 경력: 병원명 아래로 기간 내리기 */
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* 이름 글자 크기 줄이기 */
+    header {
+        font-size: 28px;
+    }
+}

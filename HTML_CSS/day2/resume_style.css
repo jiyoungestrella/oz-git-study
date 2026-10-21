@@ -1,0 +1,385 @@
+#contents {
+            text-align: center;
+        }
+        header{
+            font-family: "Bitcount Ink", system-ui; font-optical-sizing: auto; font-weight: <weight>; font-style: normal;
+            font-size: x-large; 
+            font-weight: bold; 
+            margin: 20px;
+
+        }
+        
+        #github{
+            font-size: small;
+            color: gray;
+            text-decoration: none;
+        }
+
+        #github:hover{
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 50px;
+            font-size: small;
+        }
+        footer{
+             background-color: plum;
+            margin-top: 100px;
+            font-size: xx-small;
+        }
+
+
+/* =====================================================
+   추가
+   ===================================================== */
+
+/* 추가: 초기화 + box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* width 안에 padding, border 포함 */
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #f5f4f2;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* 추가: #contents를 흰 카드처럼 (Box Model) */
+#contents {
+    max-width: 760px;
+    margin: 40px auto;          /* 가로 가운데 정렬 */
+    padding: 50px 40px 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+header {
+    font-size: 40px;
+    margin: 10px 0 0;
+}
+
+/* 추가: 프로필 사진 (원형) */
+#profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid plum;
+}
+
+/* 추가: 직무 */
+#role {
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+/* 추가: 이메일 링크도 #github와 같은 스타일 */
+#email {
+    font-size: small;
+    color: gray;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+#email:hover {
+    text-decoration: underline;
+}
+
+#github i,
+#email i {
+    margin-right: 4px;
+}
+
+/* 추가: 본문은 왼쪽 정렬 (#contents의 center를 덮어씀) */
+main {
+    text-align: left;
+    padding: 50px 0 0;
+}
+
+section {
+    margin-bottom: 44px;
+}
+
+/* 추가: 섹션 제목 - 왼쪽 세로 막대 */
+h2 {
+    font-size: 20px;
+    border-left: 4px solid plum;
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+#introduce p {
+    padding-left: 16px;
+    color: #444;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 추가: 제목 ↔ 날짜 양쪽 정렬 (Flex) */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item:hover {
+    background-color: #faf5fa;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.title small {
+    font-weight: 400;
+    color: #888;
+    margin-left: 8px;
+}
+
+.date {
+    font-size: 13px;
+    color: #999;
+    white-space: nowrap;
+}
+
+/* 추가: 폼 (세로로 쌓기) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+    padding-left: 16px;
+}
+
+label {
+    font-size: 13px;
+    color: #666;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: none;
+    border-color: plum;
+}
+
+button {
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: plum;
+}
+
+/* 추가: footer를 카드 아래에 꽉 차게 */
+footer {
+    margin: 60px -40px 0;      /* #contents의 좌우 padding만큼 빼서 끝까지 */
+    padding: 12px;
+    border-radius: 0 0 8px 8px;
+}
+
+/* 추가: 왼쪽 고정 메뉴 */
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 100vh;
+    background-color: #2f2f2f;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#menu a {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    color: plum;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =====================================================
+   추가: 반응형 디자인
+   ===================================================== */
+
+/* 화면이 좁아서 메뉴와 카드가 겹치는 구간 */
+@media (max-width: 1100px) {
+    #contents {
+        margin-left: 200px;
+        margin-right: 40px;
+    }
+}
+
+/* 태블릿 이하: 메뉴를 위쪽 가로 바로 */
+@media (max-width: 768px) {
+    #menu {
+        position: sticky;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 14px;
+    }
+
+    #contents {
+        margin: 20px 16px;
+        padding: 36px 20px 0;
+    }
+
+    footer {
+        margin: 60px -20px 0;
+    }
+}
+
+/* 모바일: 날짜를 제목 아래로 */
+@media (max-width: 480px) {
+    #menu {
+        gap: 12px;
+    }
+
+    #menu a {
+        font-size: 12px;
+    }
+
+    header {
+        font-size: 30px;
+    }
+
+    #email {
+        display: block;       /* inline → block: 다음 줄로 내려감 */
+        margin: 6px 0 0;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+}
+    
+
+
+
+
+/* 추가: Skills 섹션 */
+.skill-group {
+    padding-left: 16px;
+    margin-bottom: 16px;
+}
+
+.skill-group h3 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+/* 태그: 가로로 나열, 넘치면 줄바꿈 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+/* 알약 모양 */
+.tags li {
+    background-color: #f3e6f3;
+    color: #6b3d6b;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 999px;
+}
+
+/* 프로젝트 카드 안의 작은 태그 */
+.tags.small li {
+    font-size: 12px;
+    padding: 2px 10px;
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+
+/* 추가: Projects 카드 */
+.project {
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* 제목 왼쪽, 날짜 오른쪽 */
+.project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.project-head h3 {
+    font-size: 15px;
+}
+
+/* 태그 왼쪽, 링크 오른쪽 */
+.project-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-link {
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    color: plum;
+}
